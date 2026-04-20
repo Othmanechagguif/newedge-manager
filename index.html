@@ -10,11 +10,11 @@
 
 :root{--bg:#F7F6F3;--sur:#fff;--sur2:#F0EDE8;--terra:#B5533C;--tl:#F5EAE6;--gold:#C9A84C;--gl:#FAF4E4;--dark:#1A1008;--mid:#6B5B4E;--gray:#A09488;--grayl:#E8E3DC;--green:#3D7A5A;--greenl:#E6F4ED;--red:#C0392B;--redl:#FAEAE8;--blue:#2A6496;--bluel:#E6EFF8;--orange:#E67E22;--orangel:#FDF2E9;--purple:#6B4FA8;--purplel:#F0EAFA;--r:14px;--rsm:10px;--sh:0 2px 16px rgba(26,16,8,.07);--shm:0 8px 32px rgba(26,16,8,.11);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--dark);min-height:100vh;overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--dark);min-height:100vh;overflow-x:hidden;font-size:14px}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 input,textarea,select{font-family:inherit}
 /* LOGIN */
-#ls{display:flex;align-items:center;justify-content:center;min-height:100vh;background:var(--dark);padding:20px}
+#ls{display:flex;align-items:center;justify-content:center;min-height:100vh;background:var(--dark);padding:20px;position:fixed;inset:0;z-index:999}
 .lbox{background:var(--sur);border-radius:20px;padding:32px;width:100%;max-width:380px;box-shadow:var(--shm)}
 .llogo{display:flex;align-items:center;gap:12px;margin-bottom:24px}
 .llic{width:42px;height:42px;background:var(--terra);border-radius:11px;display:flex;align-items:center;justify-content:center}
@@ -47,7 +47,7 @@ input,textarea,select{font-family:inherit}
 .bnic{font-size:19px}
 .bnibadge{position:absolute;top:0;right:10%;background:var(--terra);color:#fff;font-size:7.5px;font-weight:700;padding:1px 5px;border-radius:7px;line-height:1.4}
 /* CONTENT */
-.cb{padding:14px 14px;padding-bottom:78px;flex:1}
+.cb{padding:14px 14px;padding-bottom:78px;flex:1;width:100%;max-width:100%}
 /* PAGES */
 .page{display:none}
 .page.act{display:block;animation:fi .25s ease}
@@ -253,6 +253,50 @@ input,textarea,select{font-family:inherit}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 
 .doc-card{background:var(--sur);border-radius:var(--r);padding:18px 12px;box-shadow:var(--sh);border:1.5px solid var(--grayl);cursor:pointer;text-align:center;transition:all .2s}.doc-card:active{transform:scale(.97)}.doc-card-warn{background:var(--redl)}.doc-card-gold{background:var(--gl)}.doc-icon{font-size:30px;margin-bottom:8px}.doc-label{font-size:12px;font-weight:600;color:var(--dark)}.doc-card-warn .doc-label{color:var(--red)}.doc-card-gold .doc-label{color:#8B6A1A}
+
+/* ════════════════════════════════════
+   RESPONSIVE LAYOUT — Mobile First
+   ════════════════════════════════════ */
+
+/* ── Tablet 640px+ ── */
+@media(min-width:640px){
+  .kgrid{grid-template-columns:repeat(4,1fr)}
+  .tlgrid{grid-template-columns:repeat(3,1fr)}
+  .smgrid{grid-template-columns:repeat(3,1fr)}
+  .tgrid{grid-template-columns:repeat(4,1fr)}
+  .afeed{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+}
+
+/* ── Desktop 1024px+ ── */
+@media(min-width:1024px){
+  body{background:#EDEAE6}
+  .topbar .tb-main{max-width:1100px;margin:0 auto;padding:12px 32px}
+  .cb{max-width:1100px;margin:0 auto;padding:24px 32px 90px}
+  .bnav{max-width:1100px;left:50%;transform:translateX(-50%);border-radius:0;padding:8px 0 12px}
+  .kgrid{grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}
+  .tlgrid{grid-template-columns:repeat(4,1fr);gap:14px}
+  .smgrid{grid-template-columns:repeat(3,1fr);gap:14px}
+  .tgrid{grid-template-columns:repeat(6,1fr);gap:10px}
+  .afeed{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .kcard{padding:18px}
+  .kv{font-size:26px}
+  .mbox{max-width:600px;border-radius:20px;margin:auto}
+  .mbk{align-items:center}
+  .lbox{max-width:420px;padding:40px 48px}
+  .fr{grid-template-columns:1fr 1fr}
+  .bni{font-size:10px;padding:4px 8px}
+  .bnic{font-size:22px}
+}
+
+/* ── Wide 1280px+ ── */
+@media(min-width:1280px){
+  .topbar .tb-main{max-width:1240px}
+  .cb{max-width:1240px;padding:28px 40px 90px}
+  .bnav{max-width:1240px}
+  .tlgrid{grid-template-columns:repeat(5,1fr)}
+  .smgrid{grid-template-columns:repeat(4,1fr)}
+  .tgrid{grid-template-columns:repeat(8,1fr)}
+}
 </style>
 <div class="toast" id="toast"></div>
 
